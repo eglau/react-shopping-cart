@@ -1,0 +1,24 @@
+div#items:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+div.item {
+  float: left;
+  border-radius: 5px;
+  background-color: lightskyblue;
+  padding: 15px;
+  margin: 0 5px;
+}
+
+div.item span.name {
+  display: block;
+}
+
+div.item span.price {
+  display: block;
+}
+div.item span.price:before {
+  content: '$';
+}

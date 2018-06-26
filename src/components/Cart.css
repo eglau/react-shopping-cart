@@ -1,0 +1,11 @@
+div#cart {
+  background-color: lightcyan;
+  border: 1px solid lightskyblue;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+div#cart span#total:before {
+  content: '$';
+}
