@@ -3,15 +3,15 @@ const addItem = (item, count) => {
     type: 'ADD_ITEM',
     id: item.id,
     count: count
-  }
-}
+  };
+};
 
 const removeItem = (item) => {
   return {
     type: 'REMOVE_ITEM',
     id: item.id
-  }
-}
+  };
+};
 
 const updateItem = (item, count) => {
   if (count > 0) {
@@ -19,11 +19,11 @@ const updateItem = (item, count) => {
       type: 'UPDATE_ITEM',
       id: item.id,
       count: count
-    }
-  } else {
-
+    };
   }
-}
+  // Remove item if count == 0
+  return removeItem(item);
+};
 
 export default {
   addItem,

@@ -24,11 +24,17 @@ describe('Removing Items', () => {
 });
 
 describe('Updating Items', () => {
-  it('should create UPDATE_ITEM action', () => {
+  it('should create UPDATE_ITEM action when count > 0', () => {
     expect(actions.updateItem(item, 2)).toEqual({
       type: 'UPDATE_ITEM',
       id: 123,
       count: 2
+    });
+  });
+  it('should create REMOVE_ITEM action when count == 0', () => {
+    expect(actions.updateItem(item, 0)).toEqual({
+      type: 'REMOVE_ITEM',
+      id: 123
     });
   });
 });

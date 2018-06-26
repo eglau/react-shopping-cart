@@ -22,6 +22,21 @@ describe('Cart reducer', () => {
       });
     });
   });
-  describe('should handle DELETE_ITEM', () => {
+  it('should handle REMOVE_ITEM', () => {
+    const payload = {
+      type: 'REMOVE_ITEM',
+      id: 123
+    };
+    expect(cart({'123': { count: 2 }}, payload)).toEqual({});
+    expect(cart({'123': { count: 2 }, '456': { count: 1 }}, payload)).toEqual({'456': { count: 1 }});
+  });
+  it('should handle UPDATE_ITEM', () => {
+    const payload = {
+      type: 'UPDATE_ITEM',
+      id: 123,
+      count: 2
+    }
+    expect(cart({'123': { count: 1 }}, payload)).toEqual({'123': { count: 2 }});
+    expect(cart({'123': { count: 3 }, '456': { count: 2 }}, payload)).toEqual({'123': { count: 2 }, '456': { count: 2 }});
   });
 });
