@@ -1,4 +1,4 @@
-import actions from './index';
+import * as actions from './index';
 
 const item = {
   id: 123

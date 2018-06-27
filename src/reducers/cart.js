@@ -1,5 +1,5 @@
 const cart = (state = {}, action) => {
-  let s = Object.assign(state);
+  let s = Object.assign({}, state);
   switch(action.type) {
     case 'ADD_ITEM':
       if (!s[action.id]) {

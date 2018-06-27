@@ -5,7 +5,8 @@ import './Cart.css';
 const Cart = (props) => {
   return (
     <div id="cart">
-      <span id="total">{ props.total }</span>
+      <span id="count">{ props.count } Items in Cart</span>
+      <span id="total">{ props.subtotal }</span>
     </div>
   )
 };

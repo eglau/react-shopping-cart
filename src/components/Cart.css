@@ -9,3 +9,7 @@ div#cart {
 div#cart span#total:before {
   content: '$';
 }
+
+div#cart span {
+  display: block;
+}
