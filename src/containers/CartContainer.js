@@ -2,18 +2,27 @@ import { connect } from 'react-redux';
 
 import Cart from '../components/Cart';
 
+const ITEMS = require('../items.json');
+
 const mapStateToProps = (state) => {
-  console.log(state);
-  let count = 0;
-  let subtotal = 0;
-  const items = Object.values(state.cart);
-  items.map((item) => {
-    count += item.count;
-    subtotal += item.price || 0; //<--- set item prices
+  let totalCount = 0;
+  let totalPrice = 0;
+  const itemIDs = Object.keys(state.cart);
+  itemIDs.map((itemID) => {
+    const count = state.cart[itemID].count;
+    totalCount += count
+    totalPrice += ITEMS[itemID].price * count;
+  });
+
+  const cart = itemIDs.map((id, index) => {
+    let item = ITEMS[id];
+    item.count = state.cart[id].count;
+    return item;
   });
   return {
-    count: count,
-    subtotal: subtotal
+    count: totalCount,
+    subtotal: totalPrice.toFixed(2),
+    cart: cart
   };
 };
 

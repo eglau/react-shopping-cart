@@ -8,7 +8,7 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onClick: () => {
-      dispatch(addItem(props, 1))
+      dispatch(addItem(props.item, 1))
     }
   }
 };

@@ -1,0 +1,17 @@
+{
+  "123": {
+    "id": 123,
+    "name": "Apple",
+    "price": 1.5
+  },
+  "456": {
+    "id": 456,
+    "name": "Banana",
+    "price": 0.5
+  },
+  "789": {
+    "id": 789,
+    "name": "Orange",
+    "price": 3
+  }
+}
