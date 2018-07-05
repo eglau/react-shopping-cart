@@ -6,10 +6,10 @@ div#cart {
   margin-top: 50px;
 }
 
-div#cart span#total:before {
-  content: '$';
+div#cart span#count {
+  display: block;
 }
 
-div#cart span {
-  display: block;
+div.cart-item span {
+  margin-right: 15px;
 }

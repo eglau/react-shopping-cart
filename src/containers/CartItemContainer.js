@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import CartItem from '../components/CartItem';
-import { removeItem } from '../actions';
+import { removeItem, updateItem } from '../actions';
 
 const mapStateToProps = (state, props) => {
   return {
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onClick: () => {
       dispatch(removeItem(props.item.id));
+    },
+    onChange: (event) => {
+      dispatch(updateItem(props.item.id, parseInt(event.target.value)));
     }
   };
 }

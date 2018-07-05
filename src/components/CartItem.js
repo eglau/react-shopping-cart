@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 const CartItem = (props) => {
   return (
-    <div>
-      <span className="cart-item-name">{props.name}</span>
-      <span className="cart-item-price">${props.price}</span>
-      <span className="cart-item-count">{props.count}</span>
-      <span className="cart-item-total">${props.total}</span>
-      <span>
+    <tr>
+      <td className="cart-item-name">{props.name}</td>
+      <td className="cart-item-price">${props.price}</td>
+      <td className="cart-item-count">
+        <input type="number" value={props.count} onChange={props.onChange} />
+      </td>
+      <td className="cart-item-total">${props.total}</td>
+      <td>
         <button onClick={props.onClick}>Delete</button>
-      </span>
-    </div>
+      </td>
+    </tr>
   );
 };
 

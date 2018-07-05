@@ -7,17 +7,27 @@ import CartItemContainer from '../containers/CartItemContainer';
 const Cart = (props) => {
   return (
     <div id="cart">
-      <span id="count">{ props.count } Items in Cart</span>
-      <span id="total">{ props.subtotal }</span>
-      <ul>
-        {
-          props.cart.map((item) => {
-            return (
-              <li key={item.id}><CartItemContainer item={item}/></li>
-            );
-          })
-        }
-      </ul>
+      <span id="count">Items in Cart: { props.count }</span>
+      <span id="total">Total Price: ${ props.subtotal }</span>
+      <table>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            props.cart.map((item) => {
+              return (
+                <CartItemContainer key={item.id} item={item}/>
+              );
+            })
+          }
+        </tbody>
+      </table>
     </div>
   )
 };
