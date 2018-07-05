@@ -1,38 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Cart.css';
+import CartItemContainer from '../containers/CartItemContainer';
 
 const Cart = (props) => {
   return (
     <div id="cart">
       <span id="count">{ props.count } Items in Cart</span>
       <span id="total">{ props.subtotal }</span>
-      <table>
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Count</td>
-            <td>Total</td>
-          </tr>
-        </thead>
-        <tbody>
+      <ul>
         {
           props.cart.map((item) => {
             return (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.price.toFixed(2)}</td>
-                <td>{item.count}</td>
-                <td>${(item.price * item.count).toFixed(2)}</td>
-              </tr>
+              <li key={item.id}><CartItemContainer item={item}/></li>
             );
           })
         }
-        </tbody>
-      </table>
+      </ul>
     </div>
   )
+};
+
+Cart.propTypes = {
+  count: PropTypes.number.isRequired,
+  subtotal: PropTypes.string.isRequired,
+  cart: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Cart;

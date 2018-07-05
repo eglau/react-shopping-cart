@@ -1,16 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Item.css';
 
 const Item = (props) => {
-  const price = props.item.price.toFixed(2);
   return (
-    <div className="item" data-item-id={ props.item.id }>
-      <span className="name">{ props.item.name }</span>
-      <span className="price">{ price }</span>
+    <div className="item">
+      <span className="name">{ props.name }</span>
+      <span className="price">{ props.price }</span>
       <button onClick={ props.onClick }>Add to Cart</button>
     </div>
   );
+};
+
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Item;

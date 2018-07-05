@@ -11,7 +11,7 @@ const App = () => {
       <div id="items">
         {
           Object.values(ITEMS).map((item) => {
-            return <ItemContainer key={item.id} item={item}/>
+            return <ItemContainer key={item.id} item={item} />
           })
         }
       </div>

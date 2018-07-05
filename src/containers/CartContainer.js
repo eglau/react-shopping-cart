@@ -14,9 +14,12 @@ const mapStateToProps = (state) => {
     totalPrice += ITEMS[itemID].price * count;
   });
 
-  const cart = itemIDs.map((id, index) => {
+  const cart = itemIDs.map((id) => {
     let item = ITEMS[id];
     item.count = state.cart[id].count;
+    item.onClick = () => {
+      dispatch(removeItem(item.id));
+    };
     return item;
   });
   return {

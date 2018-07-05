@@ -1,25 +1,26 @@
 import { connect } from 'react-redux';
 
-import { addItem } from '../actions';
-import Item from '../components/Item';
+import CartItem from '../components/CartItem';
+import { removeItem } from '../actions';
 
 const mapStateToProps = (state, props) => {
   return {
-    id: props.item.id,
     name: props.item.name,
+    count: props.item.count,
+    total: (props.item.price * props.item.count).toFixed(2),
     price: props.item.price.toFixed(2)
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onClick: () => {
-      dispatch(addItem(props.item.id, 1))
+      dispatch(removeItem(props.item.id));
     }
-  }
-};
+  };
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Item);
+)(CartItem);
